@@ -4,6 +4,9 @@ from langchain.vectorstores.chroma import Chroma
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+import os
+import config
+
 
 CHROMA_PATH = "chroma"
 
@@ -16,6 +19,12 @@ Answer the question based only on the following context:
 
 Answer the question based on the above context: {question}
 """
+
+
+# Set up environment variables for API keys
+os.environ["OPENAI_API_KEY"] = config.api_key
+os.environ["GOOGLE_CSE_ID"] = config.cse_id
+os.environ["GOOGLE_API_KEY"] = config.google_api_key
 
 
 def main():

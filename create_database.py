@@ -5,9 +5,15 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores.chroma import Chroma
 import os
 import shutil
+import config
 
 CHROMA_PATH = "chroma"
 DATA_PATH = "data/books"
+
+# Set up environment variables for API keys
+os.environ["OPENAI_API_KEY"] = config.api_key
+os.environ["GOOGLE_CSE_ID"] = config.cse_id
+os.environ["GOOGLE_API_KEY"] = config.google_api_key
 
 
 def main():
